@@ -1,0 +1,13 @@
+.contenedor{
+    height: 100vh;
+}
+.imagen__copa{
+    background-image: url("../images/copa.jpg");
+    background-position: top;
+    background-size: cover;
+    height: 100vh;
+}
+.contenedor__formulario{
+    width: 80%;
+    height: 100%;
+}
