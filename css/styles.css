@@ -1,16 +1,37 @@
-.contenedor{
+.contenedor {
     height: 100vh;
 }
-.imagen__copa{
+.imagen__copa {
     background-image: url("../images/copa.jpg");
     background-position: top;
     background-size: cover;
     height: 100vh;
 }
+<<<<<<< Updated upstream
 .contenedor__formulario{
     width: 90%;
     height: 100%;
 }
 .campo__salida{
     height: 150px;
+=======
+.contenedor__formulario {
+    width: 90%;
+    height: 100%;
+}
+textarea {
+    resize: none;
+    height: 150px;
+}
+textarea::-webkit-scrollbar {
+    width: 10px;
+    background-color: #f5f5f5;
+}
+textarea::-webkit-scrollbar-thumb {
+    background-color: #c54343;
+    border-radius: 5px;
+}
+textarea::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa;
+>>>>>>> Stashed changes
 }
