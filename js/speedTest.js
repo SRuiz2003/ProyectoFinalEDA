@@ -1,5 +1,4 @@
  //Esta es una prueba de metodos de organizacion usando la extension JavaScript Performance de Khiami.
- // definition
  function QuickInsertionSortByPoints(arr) {
     'use strict';
   
@@ -161,7 +160,50 @@
     } while(endIndex > startIndex);
   }
 
- const info = [
+// definition
+  function partition(arr, left, right, pivot) {
+    while (left <= right) {
+      while (arr[left] < pivot && left <= right) {
+        left++;
+      }
+      while (arr[right] > pivot) {
+        right--;
+      }
+      if (left <= right) {
+        [arr[left], arr[right]] = [arr[right], arr[left]];
+        left++;
+        right--;
+      }
+    }
+    return left;
+  }
+
+  function QISortByPoints(arr, left = 0, right= arr.length-1){
+    if (left>=right) return;  
+    let pivot = arr[Math.floor((right+left)/2)];
+    const index = partition(arr,left,right,pivot);
+    QISortByPoints(arr,left,index-1);
+    QISortByPoints(arr,index,right);
+    return arr;
+  }
+
+  function insertionSort(arr, n = arr.length)
+  {
+    let i, key, j;
+    for (i = 1; i < n; i++)
+    {
+      key = arr[i];
+      j = i - 1;		
+      while (j >= 0 && arr[j] > key)
+      {
+        arr[j + 1] = arr[j];
+        j = j - 1;
+      }
+      arr[j + 1] = key;
+    }
+  }
+
+  const info = [
     {
         "equipo": "Brazil",
         "puntos": 6,
@@ -203,16 +245,9 @@
         "golesEnContra": 6
     }
 ];
-let info2 = [...info]
-
-// case Vanilla Sort
-const SortByVan = [...info].sort((a,b) => a.puntos - b.puntos);
-
-// case Quick Sort
-QuickInsertionSortByPoints(info2);
-
-
-
+let arr = [1, 3, 7, 4, 5, 2, 6];
+let arr2 = [...arr];
+let arr3 = [...arr];
 
 
 
