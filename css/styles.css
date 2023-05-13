@@ -7,14 +7,6 @@
     background-size: cover;
     height: 100vh;
 }
-<<<<<<< Updated upstream
-.contenedor__formulario{
-    width: 90%;
-    height: 100%;
-}
-.campo__salida{
-    height: 150px;
-=======
 .contenedor__formulario {
     width: 90%;
     height: 100%;
@@ -33,5 +25,4 @@ textarea::-webkit-scrollbar-thumb {
 }
 textarea::-webkit-scrollbar-thumb:hover {
     background-color: #aaa;
->>>>>>> Stashed changes
 }

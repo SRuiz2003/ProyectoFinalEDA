@@ -1,17 +1,74 @@
-<<<<<<< Updated upstream
-function resolverTorneo(torneo){
+// QuickSort implementado tal como nos lo enseñaron, ningun cambio aqui
+function quickSort(arr, start = 0, end = arr.length - 1) {
+  if (start >= end) {
+    return;
+  }
 
-    let info = [];
-
-    info.split("--");
-    
-    let equipos = info[2].split(",");
-    let partidos = info[3].split(",");
-    
+  const pivotIndex = partition(arr, start, end);
+  quickSort(arr, start, pivotIndex - 1);
+  quickSort(arr, pivotIndex + 1, end);
 }
 
-function limpiarCampo(){
-=======
+function partition(arr, start, end) {
+  const pivot = arr[end];
+  let partitionIndex = start;
+
+// el cambio comienza aqui, usamos la funcion comparar objetos en vez de comparar directamente a arr[i] con el pivote
+
+  for (let i = start; i < end; i++) {
+    if (compararObjetos(arr[i], pivot) < 0) {
+      swap(arr, i, partitionIndex);
+      partitionIndex++;
+    }
+  }
+
+  swap(arr, partitionIndex, end);
+  return partitionIndex;
+}
+
+// La funcion comparar objetos toma ambos objetos y entonces se pregunta sobre que criterio debe evaluar, si los puntos son iguales evalua sobre las victorias y si estas tambien son iguales evalua sobre la diferencia de goles
+// Si la funcion retorna un valor positivo, entonces el valor del pivote es mayor que el del objeto y se mantiene a la izquierda, si es menor o igual a cero lo mueve a la derecha del pivote. 
+
+function compararObjetos(obj1, obj2) {
+  if (obj1.puntos !== obj2.puntos) {
+    return obj2.puntos - obj1.puntos;
+  } else if (obj1.victorias !== obj2.victorias) {
+    return obj2.victorias - obj1.victorias;
+  } else {
+    return obj2.difGoles - obj1.difGoles;
+  }
+}
+
+function swap(arr, i, j) {
+  const temp = arr[i];
+  arr[i] = arr[j];
+  arr[j] = temp;
+}
+
+// Esta es una implementacion sencilla de insertion sort con la misma condicion de progreso de compararObjetos 
+
+function insertionSort(arr) {
+  for (let i = 1; i < arr.length; i++) {
+    const current = arr[i];
+    let j = i - 1;
+
+    while (j >= 0 && compararObjetos(arr[j], current) > 0) {
+      arr[j + 1] = arr[j];
+      j--;
+    }
+
+    arr[j + 1] = current;
+  }
+}
+
+function sortEquipos(arr){
+  if(arr.length<1000){
+    insertionSort(arr);
+  }else{
+    quickSort(arr);
+  }
+}
+
 function resolverTorneo(torneo) {
 
     try {
@@ -39,7 +96,6 @@ function resolverTorneo(torneo) {
 
         // El entries y el arreglo [indice, equipo] es para poner el indice en la respuesta al final.
 
-<<<<<<< Updated upstream
         for(const [indice, equipo] of equipos.entries()){
 
             // Se descartan las variables calculables
@@ -96,7 +152,6 @@ function resolverTorneo(torneo) {
                     }
                 }
             }
-<<<<<<< Updated upstream
 
             // Formato de salida: Nombre del equipo, Puntos del equipo[p], Cantidad de juegos[g], (victorias-empates-derrotas), diferencia de goles[gd] (Goles marcados - Goles en contra)
 
@@ -140,18 +195,12 @@ function resolverTorneo(torneo) {
     } catch (TypeError) {
         alert('El campo de entrada está vacio'); // Complejidad: O(1)
     }
-        
 }
 
 function limpiarCampo() {
-<<<<<<< Updated upstream
 >>>>>>> Stashed changes
     campoEntrada.value = "";
     campoSalida.value = "";
-=======
-    campoEntrada.value = ""; // Complejidad: O(1)
-    campoSalida.value = ""; // Complejidad: O(1)
->>>>>>> Stashed changes
 }
 
 <<<<<<< Updated upstream
@@ -164,4 +213,4 @@ botonLimpiar.addEventListener("click", limpiarCampo);
 botonCalcular.addEventListener("click", resolverTorneo(torneo));
 =======
 export {resolverTorneo, limpiarCampo}
->>>>>>> Stashed changes
+
