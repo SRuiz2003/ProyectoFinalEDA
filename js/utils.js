@@ -94,20 +94,6 @@ function resolverTorneo(torneo) {
         // ['Norway', '2', '2', 'Morocco']
         // ['Brazil', '2', '1', 'Scotland']
 
-        // El entries y el arreglo [indice, equipo] es para poner el indice en la respuesta al final.
-
-        for(const [indice, equipo] of equipos.entries()){
-
-            // Se descartan las variables calculables
-            let cantidadJuegos = 0;
-            let victorias = 0;
-            let empates = 0;
-            let derrotas = 0;
-            let golesMarcados = 0;
-            let golesEnContra = 0;
-
-            let linea = '';
-=======
         // Agregar titulo del torneo a la salida
         campoSalida.value+= `${info[0]}\n` // Complejidad: O(1)
 
