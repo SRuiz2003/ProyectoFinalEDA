@@ -152,13 +152,6 @@ function resolverTorneo(torneo) {
                     }
                 }
             }
-
-            // Formato de salida: Nombre del equipo, Puntos del equipo[p], Cantidad de juegos[g], (victorias-empates-derrotas), diferencia de goles[gd] (Goles marcados - Goles en contra)
-
-            linea = `${indice+1}) ${equipo} ${(victorias*3)+empates}p, ${cantidadJuegos}g (${victorias}-${empates}-${derrotas}), ${golesMarcados - golesEnContra}gd (${golesMarcados}-${golesEnContra})\n`;
-
-            campoSalida.value += linea;
-
         }
 
 =======
@@ -191,19 +184,16 @@ function resolverTorneo(torneo) {
           });
           
         campoSalida.value += linea; // Complejidad: O(1)
->>>>>>> Stashed changes
     } catch (TypeError) {
         alert('El campo de entrada está vacio'); // Complejidad: O(1)
     }
 }
 
 function limpiarCampo() {
->>>>>>> Stashed changes
     campoEntrada.value = "";
     campoSalida.value = "";
 }
 
-<<<<<<< Updated upstream
 let botonLimpiar = document.getElementById("botonLimpiar");
 let botonCalcular = document.getElementById("botonCalcular");
 let torneo = document.getElementById("campoEntrada");
@@ -211,6 +201,6 @@ let campoSalida = document.getElementById("campoSalida");
 
 botonLimpiar.addEventListener("click", limpiarCampo);
 botonCalcular.addEventListener("click", resolverTorneo(torneo));
-=======
-export {resolverTorneo, limpiarCampo}
+
+export {resolverTorneo, limpiarCampo};
 
